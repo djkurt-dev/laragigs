@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\ListingController;
-use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Route;
 use App\Models\Listing;
 
@@ -19,6 +19,12 @@ use App\Models\Listing;
 //all listings
 Route::get('/', [ListingController::class, 'index']);
 
+//Show create listing form
+Route::get('/listings/create', [ListingController::class, 'create']);
+
+//Store LIsting data
+Route::post('/listings',[ListingController::class, 'store']);
+
 //single listing //route model binding
 Route::get('/listings/{listing}', [ListingController::class, 'show']);
 
@@ -33,3 +39,6 @@ Route::get('/listings/{listing}', [ListingController::class, 'show']);
 //         abort(404);
 //     }
 // });
+
+
+
