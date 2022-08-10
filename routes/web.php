@@ -28,8 +28,12 @@ Route::post('/listings',[ListingController::class, 'store']);
 //Update listing
 Route::get('/listings/{listing}/edit', [ListingController::class, 'edit']);
 
+
 //edit submit to update
 Route::put('/listings/{listing}',[ListingController::class, 'update']);
+
+//Delete listing
+Route::delete('/listings/{listing}', [ListingController::class, 'destroy']);
 
 //single listing //route model binding
 Route::get('/listings/{listing}', [ListingController::class, 'show']);
