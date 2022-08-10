@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Listing;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -79,5 +80,10 @@ class ListingController extends Controller
     public function destroy(Listing $listing) {
         $listing->delete();
         return redirect('/')->with('message','Listing deleted successfully');
+    }
+
+    //manage listings
+    public function manage() {
+        return view('listings.manage', ['listings' => auth()->user()->listings()->get()]);
     }
 }
