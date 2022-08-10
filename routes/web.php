@@ -25,20 +25,15 @@ Route::get('/listings/create', [ListingController::class, 'create']);
 //Store LIsting data
 Route::post('/listings',[ListingController::class, 'store']);
 
+//Update listing
+Route::get('/listings/{listing}/edit', [ListingController::class, 'edit']);
+
+//edit submit to update
+Route::put('/listings/{listing}',[ListingController::class, 'update']);
+
 //single listing //route model binding
 Route::get('/listings/{listing}', [ListingController::class, 'show']);
 
-// Route::get('/listings/{id}', function($id) {
-//     $listing = Listing::find($id);
-
-//     if($listing){
-//         return view('listing', [
-//             'listing' => $listing
-//         ]);
-//     } else{
-//         abort(404);
-//     }
-// });
 
 
 
