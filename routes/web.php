@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\ListingController;
+use App\Models\Listing;
 
 use Illuminate\Support\Facades\Route;
-use App\Models\Listing;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ListingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,7 +29,6 @@ Route::post('/listings',[ListingController::class, 'store']);
 //Update listing
 Route::get('/listings/{listing}/edit', [ListingController::class, 'edit']);
 
-
 //edit submit to update
 Route::put('/listings/{listing}',[ListingController::class, 'update']);
 
@@ -40,4 +40,8 @@ Route::get('/listings/{listing}', [ListingController::class, 'show']);
 
 
 
+//Show Register/Create User Form
+Route::get('/register', [UserController::class, 'create']);
 
+//create new user
+Route::post('/users', [UserController::class, 'store']);
